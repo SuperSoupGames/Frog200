@@ -13,25 +13,7 @@ MonoBehaviour:
   m_Name: NetworkSettings
   m_EditorClassIdentifier: 
   Regions:
-  - DisplayName: Auto
-    Region: 
-    Icon: {fileID: 0}
-  - DisplayName: Asia
-    Region: asia
-    Icon: {fileID: 0}
-  - DisplayName: Europe
-    Region: eu
-    Icon: {fileID: 0}
-  - DisplayName: Japan
-    Region: jp
-    Icon: {fileID: 0}
-  - DisplayName: South America
-    Region: sa
-    Icon: {fileID: 0}
-  - DisplayName: South Korea
-    Region: kr
-    Icon: {fileID: 0}
   - DisplayName: USA, East
     Region: us
     Icon: {fileID: 0}
-  QueueName: battleRoyale
+  QueueName: Queue-Build-221008

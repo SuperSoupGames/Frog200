@@ -6,6 +6,6 @@ namespace TPSBR
 {
     public static class SSG_Statics
     {
-        public static string Region = "";
+        public static string Region = "us";
     }
 }

@@ -101,8 +101,10 @@ namespace TPSBR.UI
 
 			var currentRegion = Context.RuntimeSettings.Region;
 			int regionIndex = System.Array.FindIndex(Context.Settings.Network.Regions, t => t.Region == currentRegion);
-			SSG_Statics.Region = currentRegion;
-			_regionDropdown.SetValueWithoutNotify(regionIndex);
+			//SSG_Statics.Region = currentRegion;/**/
+			SSG_Statics.Region = "us";
+
+            _regionDropdown.SetValueWithoutNotify(regionIndex);
 		}
 
 		protected override void OnClose()
