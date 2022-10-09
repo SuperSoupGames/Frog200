@@ -286,6 +286,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIChangeNicknameView
       objectReference: {fileID: 0}
+    - target: {fileID: 1369129644662472201, guid: 2c0ca0a02e6fdb04a8bc2f1c5092b99c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5841626621723555738, guid: 2c0ca0a02e6fdb04a8bc2f1c5092b99c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -547,6 +551,10 @@ PrefabInstance:
     - target: {fileID: 1284939984300546277, guid: 12e456a6d7ebf004fbc4e5903eeb58b6, type: 3}
       propertyPath: m_Name
       value: UIJokeDialogView
+      objectReference: {fileID: 0}
+    - target: {fileID: 1284939984300546277, guid: 12e456a6d7ebf004fbc4e5903eeb58b6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6036097034215362934, guid: 12e456a6d7ebf004fbc4e5903eeb58b6, type: 3}
       propertyPath: m_Pivot.x
@@ -1043,6 +1051,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIErrorDialogView
       objectReference: {fileID: 0}
+    - target: {fileID: 1284939984300546277, guid: 40ea139f28718e542ab224646fec6a85, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6036097034215362934, guid: 40ea139f28718e542ab224646fec6a85, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1430,6 +1442,10 @@ PrefabInstance:
     - target: {fileID: 1284939984300546277, guid: 5923c4e8b11e14a449c41690690e437c, type: 3}
       propertyPath: m_Name
       value: UIInfoDialogView
+      objectReference: {fileID: 0}
+    - target: {fileID: 1284939984300546277, guid: 5923c4e8b11e14a449c41690690e437c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6036097034215362934, guid: 5923c4e8b11e14a449c41690690e437c, type: 3}
       propertyPath: m_Pivot.x
@@ -2005,6 +2021,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIMatchmakerView
       objectReference: {fileID: 0}
+    - target: {fileID: 1284939984300546277, guid: 60b91ccbb557e46e883ae882b1a4ebc7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6036097034215362934, guid: 60b91ccbb557e46e883ae882b1a4ebc7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2160,6 +2180,10 @@ PrefabInstance:
     - target: {fileID: 1369129644662472201, guid: a8e7934c26aeb294ab5ad121c9af5371, type: 3}
       propertyPath: m_Name
       value: UICreditsView
+      objectReference: {fileID: 0}
+    - target: {fileID: 1369129644662472201, guid: a8e7934c26aeb294ab5ad121c9af5371, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5841626621723555738, guid: a8e7934c26aeb294ab5ad121c9af5371, type: 3}
       propertyPath: m_Pivot.x
@@ -3995,6 +4019,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -12.180908
       objectReference: {fileID: 0}
+    - target: {fileID: 958499181757315036, guid: 48e1b3dca8b7c274bb2275ef2334747e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 958499181757315036, guid: 48e1b3dca8b7c274bb2275ef2334747e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 958499181757315036, guid: 48e1b3dca8b7c274bb2275ef2334747e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1700389219385606413, guid: 48e1b3dca8b7c274bb2275ef2334747e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4079,6 +4115,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1885401036497832387, guid: 48e1b3dca8b7c274bb2275ef2334747e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -12.180939
+      objectReference: {fileID: 0}
     - target: {fileID: 2786206046355977204, guid: 48e1b3dca8b7c274bb2275ef2334747e, type: 3}
       propertyPath: m_SortingOrder
       value: 3
@@ -4110,6 +4150,14 @@ PrefabInstance:
     - target: {fileID: 4696715504227515256, guid: 48e1b3dca8b7c274bb2275ef2334747e, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846075785046313855, guid: 48e1b3dca8b7c274bb2275ef2334747e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846075785046313855, guid: 48e1b3dca8b7c274bb2275ef2334747e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5815110965749915029, guid: 48e1b3dca8b7c274bb2275ef2334747e, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4155,6 +4203,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIMultiplayerView
       objectReference: {fileID: 0}
+    - target: {fileID: 6163596800671221918, guid: 48e1b3dca8b7c274bb2275ef2334747e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6689424599288239931, guid: 48e1b3dca8b7c274bb2275ef2334747e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 7.445923
+      objectReference: {fileID: 0}
     - target: {fileID: 6708115955402375826, guid: 48e1b3dca8b7c274bb2275ef2334747e, type: 3}
       propertyPath: _cancelQuickPlayButton
       value: 
@@ -4177,6 +4233,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7806659318112142209, guid: 48e1b3dca8b7c274bb2275ef2334747e, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8502159167866928192, guid: 48e1b3dca8b7c274bb2275ef2334747e, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9033378250479708062, guid: 48e1b3dca8b7c274bb2275ef2334747e, type: 3}
@@ -4208,6 +4268,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 943405864}
     m_Modifications:
+    - target: {fileID: 447753690997640989, guid: 47a0d2686b74dd74192b3fbcd3d49b02, type: 3}
+      propertyPath: m_text
+      value: PLAYING AS FROG
+      objectReference: {fileID: 0}
+    - target: {fileID: 590095893523334090, guid: 47a0d2686b74dd74192b3fbcd3d49b02, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1737356216923045047, guid: 47a0d2686b74dd74192b3fbcd3d49b02, type: 3}
+      propertyPath: m_fontSize
+      value: 60.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 1737356216923045047, guid: 47a0d2686b74dd74192b3fbcd3d49b02, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 60.87
+      objectReference: {fileID: 0}
     - target: {fileID: 2560445842520290582, guid: 47a0d2686b74dd74192b3fbcd3d49b02, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -4232,6 +4308,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIMainMenuView
       objectReference: {fileID: 0}
+    - target: {fileID: 4362021053678397647, guid: 47a0d2686b74dd74192b3fbcd3d49b02, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4479991217033819706, guid: 47a0d2686b74dd74192b3fbcd3d49b02, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -4252,6 +4332,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4635279705314299751, guid: 47a0d2686b74dd74192b3fbcd3d49b02, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5086747523503559541, guid: 47a0d2686b74dd74192b3fbcd3d49b02, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6116188896713042412, guid: 47a0d2686b74dd74192b3fbcd3d49b02, type: 3}
       propertyPath: m_SortingOrder
       value: 1
@@ -4259,6 +4347,10 @@ PrefabInstance:
     - target: {fileID: 6116188896713042412, guid: 47a0d2686b74dd74192b3fbcd3d49b02, type: 3}
       propertyPath: m_OverrideSorting
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6412085864178356105, guid: 47a0d2686b74dd74192b3fbcd3d49b02, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7337340411887819541, guid: 47a0d2686b74dd74192b3fbcd3d49b02, type: 3}
       propertyPath: m_Pivot.x
@@ -4343,6 +4435,14 @@ PrefabInstance:
     - target: {fileID: 7337340411887819541, guid: 47a0d2686b74dd74192b3fbcd3d49b02, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7940286777365662053, guid: 47a0d2686b74dd74192b3fbcd3d49b02, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 209.633
+      objectReference: {fileID: 0}
+    - target: {fileID: 7940286777365662053, guid: 47a0d2686b74dd74192b3fbcd3d49b02, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -96.817
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47a0d2686b74dd74192b3fbcd3d49b02, type: 3}
@@ -4434,6 +4534,10 @@ PrefabInstance:
     - target: {fileID: 31067881709518094, guid: e4f87b79dd379ea4a8ab80e6432514fd, type: 3}
       propertyPath: m_Name
       value: UIAgentSelectionView
+      objectReference: {fileID: 0}
+    - target: {fileID: 31067881709518094, guid: e4f87b79dd379ea4a8ab80e6432514fd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4791795149307131037, guid: e4f87b79dd379ea4a8ab80e6432514fd, type: 3}
       propertyPath: m_Pivot.x
@@ -4651,6 +4755,10 @@ PrefabInstance:
     - target: {fileID: 5421402336083003269, guid: 35efa7bd1b6d4244f94d68385b45c7af, type: 3}
       propertyPath: m_Name
       value: UICreateSessionView
+      objectReference: {fileID: 0}
+    - target: {fileID: 5421402336083003269, guid: 35efa7bd1b6d4244f94d68385b45c7af, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7448184080920066025, guid: 35efa7bd1b6d4244f94d68385b45c7af, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4895,6 +5003,10 @@ PrefabInstance:
     - target: {fileID: 8965574188593481229, guid: 740c8cc52e2130140a5bd3397f7fa2eb, type: 3}
       propertyPath: m_Name
       value: UISettingsView
+      objectReference: {fileID: 0}
+    - target: {fileID: 8965574188593481229, guid: 740c8cc52e2130140a5bd3397f7fa2eb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 740c8cc52e2130140a5bd3397f7fa2eb, type: 3}

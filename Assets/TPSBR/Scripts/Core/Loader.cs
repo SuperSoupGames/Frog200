@@ -78,8 +78,9 @@ namespace TPSBR
 			if (ApplicationSettings.UseMatchmaking == true) { _batchModeConfiguration.Matchmaking   = true;                             }
 			if (ApplicationSettings.UseBackfill    == true) { _batchModeConfiguration.Backfill      = true;                             }
 			if (ApplicationSettings.UseSQP         == true) { _batchModeConfiguration.QueryProtocol = true;                             }
+            //Context.PlayerData.AgentID = "Agent.Soldier";
 
-			StandaloneManager.ExternalConfiguration = _batchModeConfiguration;
+            StandaloneManager.ExternalConfiguration = _batchModeConfiguration;
 
 			SceneManager.LoadScene(ApplicationSettings.HasCustomScene == true ? ApplicationSettings.CustomScene : _batchModeScene);
 		}

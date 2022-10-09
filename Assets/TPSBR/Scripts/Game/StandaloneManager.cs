@@ -56,7 +56,8 @@ namespace TPSBR
 
 			scenePath = scenePath.Substring("Assets/".Length, scenePath.Length - "Assets/".Length - ".unity".Length);
 
-			PhotonAppSettings.Instance.AppSettings.FixedRegion = configuration.Region;
+			//PhotonAppSettings.Instance.AppSettings.FixedRegion = configuration.Region;
+			PhotonAppSettings.Instance.AppSettings.FixedRegion = "us";
 
 			var request = new SessionRequest
 			{

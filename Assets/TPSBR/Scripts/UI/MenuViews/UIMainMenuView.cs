@@ -3,157 +3,165 @@ using TMPro;
 
 namespace TPSBR.UI
 {
-	public class UIMainMenuView : UIView
-	{
-		// PRIVATE MEMBERS
+    public class UIMainMenuView : UIView
+    {
+        // PRIVATE MEMBERS
 
-		[SerializeField]
-		private UIButton _playButton;
-		[SerializeField]
-		private UIButton _settingsButton;
-		[SerializeField]
-		private UIButton _creditsButton;
-		[SerializeField]
-		private UIButton _changeNicknameButton;
-		[SerializeField]
-		private UIButton _quitButton;
-		[SerializeField]
-		private UIButton _playerButton;
-		[SerializeField]
-		private UIPlayer _player;
-		[SerializeField]
-		private TextMeshProUGUI _agentName;
+        [SerializeField]
+        private UIButton _playButton;
 
-		// PUBLIC METHODS
+        [SerializeField]
+        private UIButton _settingsButton;
 
-		public void OnPlayerButtonPointerEnter()
-		{
-			Context.PlayerPreview.ShowOutline(true);
-		}
+        [SerializeField]
+        private UIButton _creditsButton;
 
-		public void OnPlayerButtonPointerExit()
-		{
-			Context.PlayerPreview.ShowOutline(false);
-		}
+        [SerializeField]
+        private UIButton _changeNicknameButton;
 
-		// UIView INTEFACE
+        [SerializeField]
+        private UIButton _quitButton;
 
-		protected override void OnInitialize()
-		{
-			base.OnInitialize();
+        [SerializeField]
+        private UIButton _playerButton;
 
-			_settingsButton.onClick.AddListener(OnSettingsButton);
-			_playButton.onClick.AddListener(OnPlayButton);
-			_creditsButton.onClick.AddListener(OnCreditsButton);
-			_changeNicknameButton.onClick.AddListener(OnChangeNicknameButton);
-			_quitButton.onClick.AddListener(OnQuitButton);
-			_playerButton.onClick.AddListener(OnPlayerButton);
-		}
+        [SerializeField]
+        private UIPlayer _player;
 
-		protected override void OnDeinitialize()
-		{
-			_settingsButton.onClick.RemoveListener(OnSettingsButton);
-			_playButton.onClick.RemoveListener(OnPlayButton);
-			_creditsButton.onClick.RemoveListener(OnCreditsButton);
-			_changeNicknameButton.onClick.RemoveListener(OnChangeNicknameButton);
-			_quitButton.onClick.RemoveListener(OnQuitButton);
-			_playerButton.onClick.RemoveListener(OnPlayerButton);
+        [SerializeField]
+        private TextMeshProUGUI _agentName;
 
-			base.OnDeinitialize();
-		}
+        // PUBLIC METHODS
 
-		protected override void OnOpen()
-		{
-			base.OnOpen();
+        public void OnPlayerButtonPointerEnter()
+        {
+            Context.PlayerPreview.ShowOutline(true);
+        }
 
-			UpdatePlayer();
+        public void OnPlayerButtonPointerExit()
+        {
+            Context.PlayerPreview.ShowOutline(false);
+        }
 
-			Global.PlayerService.PlayerDataChanged += OnPlayerDataChanged;
-			Context.PlayerPreview.ShowAgent(Context.PlayerData.AgentID);
+        // UIView INTEFACE
 
-			Context.PlayerPreview.ShowOutline(false);
-		}
+        protected override void OnInitialize()
+        {
+            base.OnInitialize();
 
-		protected override void OnClose()
-		{
-			Global.PlayerService.PlayerDataChanged -= OnPlayerDataChanged;
+            _settingsButton.onClick.AddListener(OnSettingsButton);
+            _playButton.onClick.AddListener(OnPlayButton);
+            _creditsButton.onClick.AddListener(OnCreditsButton);
+            _changeNicknameButton.onClick.AddListener(OnChangeNicknameButton);
+            _quitButton.onClick.AddListener(OnQuitButton);
+            _playerButton.onClick.AddListener(OnPlayerButton);
+        }
 
-			Context.PlayerPreview.ShowOutline(false);
+        protected override void OnDeinitialize()
+        {
+            _settingsButton.onClick.RemoveListener(OnSettingsButton);
+            _playButton.onClick.RemoveListener(OnPlayButton);
+            _creditsButton.onClick.RemoveListener(OnCreditsButton);
+            _changeNicknameButton.onClick.RemoveListener(OnChangeNicknameButton);
+            _quitButton.onClick.RemoveListener(OnQuitButton);
+            _playerButton.onClick.RemoveListener(OnPlayerButton);
 
-			base.OnClose();
-		}
+            base.OnDeinitialize();
+        }
 
-		protected override bool OnBackAction()
-		{
-			if (IsInteractable == false)
-				return false;
+        protected override void OnOpen()
+        {
+            base.OnOpen();
 
-			OnQuitButton();
-			return true;
-		}
+            UpdatePlayer();
 
-		// PRIVATE METHODS
+            Global.PlayerService.PlayerDataChanged += OnPlayerDataChanged;
+            Context.PlayerPreview.ShowAgent(Context.PlayerData.AgentID);
 
-		private void OnSettingsButton()
-		{
-			Open<UISettingsView>();
-		}
+            Context.PlayerPreview.ShowOutline(false);
+        }
 
-		private void OnPlayButton()
-		{
-			Open<UIMultiplayerView>();
-		}
+        protected override void OnClose()
+        {
+            Global.PlayerService.PlayerDataChanged -= OnPlayerDataChanged;
 
-		private void OnCreditsButton()
-		{
-			Open<UICreditsView>();
-		}
+            Context.PlayerPreview.ShowOutline(false);
 
-		private void OnChangeNicknameButton()
-		{
-			var changeNicknameView = Open<UIChangeNicknameView>();
-			changeNicknameView.SetData("CHANGE NICKNAME", false);
-		}
+            base.OnClose();
+        }
 
-		private void OnQuitButton()
-		{
-			var dialog = Open<UIYesNoDialogView>();
+        protected override bool OnBackAction()
+        {
+            if (IsInteractable == false)
+                return false;
 
-			dialog.Title.text = "EXIT GAME";
-			dialog.Description.text = "Are you sure you want to exit the game?";
+            OnQuitButton();
+            return true;
+        }
 
-			dialog.YesButtonText.text = "EXIT";
-			dialog.NoButtonText.text = "CANCEL";
+        // PRIVATE METHODS
 
-			dialog.HasClosed += (result) =>
-			{
-				if (result == true)
-				{
-					SceneUI.Scene.Quit();
-				}
-			};
-		}
+        private void OnSettingsButton()
+        {
+            Open<UISettingsView>();
+        }
 
-		private void OnPlayerButton()
-		{
-			var agentSelection = Open<UIAgentSelectionView>();
-			agentSelection.BackView = this;
+        private void OnPlayButton()
+        {
+            Open<UIMultiplayerView>();
+        }
 
-			Close();
-		}
+        private void OnCreditsButton()
+        {
+            Open<UICreditsView>();
+        }
 
-		private void OnPlayerDataChanged(PlayerData playerData)
-		{
-			UpdatePlayer();
-		}
+        private void OnChangeNicknameButton()
+        {
+            var changeNicknameView = Open<UIChangeNicknameView>();
+            changeNicknameView.SetData("CHANGE NICKNAME", false);
+        }
 
-		private void UpdatePlayer()
-		{
-			_player.SetData(Context, Context.PlayerData);
-			Context.PlayerPreview.ShowAgent(Context.PlayerData.AgentID);
+        private void OnQuitButton()
+        {
+            var dialog = Open<UIYesNoDialogView>();
 
-			var setup = Context.Settings.Agent.GetAgentSetup(Context.PlayerData.AgentID);
-			_agentName.text = setup != null ? $"Playing as {setup.DisplayName}" : string.Empty;
-		}
-	}
+            dialog.Title.text = "EXIT GAME";
+            dialog.Description.text = "Are you sure you want to exit the game?";
+
+            dialog.YesButtonText.text = "EXIT";
+            dialog.NoButtonText.text = "CANCEL";
+
+            dialog.HasClosed += (result) =>
+            {
+                if (result == true)
+                {
+                    SceneUI.Scene.Quit();
+                }
+            };
+        }
+
+        private void OnPlayerButton()
+        {
+            var agentSelection = Open<UIAgentSelectionView>();
+            agentSelection.BackView = this;
+
+            Close();
+        }
+
+        private void OnPlayerDataChanged(PlayerData playerData)
+        {
+            UpdatePlayer();
+        }
+
+        private void UpdatePlayer()
+        {
+            _player.SetData(Context, Context.PlayerData);
+            Context.PlayerPreview.ShowAgent(Context.PlayerData.AgentID);
+
+            var setup = Context.Settings.Agent.GetAgentSetup(Context.PlayerData.AgentID);
+            //_agentName.text = setup != null ? $"Playing as {setup.DisplayName}" : string.Empty;
+            _agentName.text = setup != null ? $"Playing as FROG" : string.Empty;
+        }
+    }
 }

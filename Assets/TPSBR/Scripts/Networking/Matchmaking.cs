@@ -98,7 +98,8 @@ namespace TPSBR
 			await LeaveLobby();
 
 			_currentRegion = Context.RuntimeSettings.Region;
-			PhotonAppSettings.Instance.AppSettings.FixedRegion = _currentRegion;
+			//PhotonAppSettings.Instance.AppSettings.FixedRegion = _currentRegion;
+			PhotonAppSettings.Instance.AppSettings.FixedRegion = "us";
 
 			var joinTask = _lobbyRunner.JoinSessionLobby(SessionLobby.Custom, _lobbyName);
 			await joinTask;
@@ -158,7 +159,8 @@ namespace TPSBR
 		{
 			base.OnActivate();
 
-			PhotonAppSettings.Instance.AppSettings.FixedRegion = Context.RuntimeSettings.Region;
+			PhotonAppSettings.Instance.AppSettings.FixedRegion = "us";
+			//PhotonAppSettings.Instance.AppSettings.FixedRegion = Context.RuntimeSettings.Region;
 		}
 
 		protected override void OnTick()

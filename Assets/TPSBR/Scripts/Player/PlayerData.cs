@@ -87,7 +87,7 @@ namespace TPSBR
 		public void Unlock()
 		{
 			_isLocked = false;
-		}
+		} 
 
 		// PRIVATE METHODS
 
