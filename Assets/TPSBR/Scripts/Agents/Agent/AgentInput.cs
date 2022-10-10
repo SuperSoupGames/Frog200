@@ -289,7 +289,7 @@ namespace TPSBR
 			// Always use KeyControl.isPressed, Input.GetMouseButton() and Input.GetKey().
 			// Never use KeyControl.wasPressedThisFrame, Input.GetMouseButtonDown() or Input.GetKeyDown() otherwise the action might be lost.
 
-			Mouse    mouse      = Mousdsaasdasde.current;
+			Mouse    mouse      = Mouse.current;
 			Keyboard keyboard   = Keyboard.current;
 			Vector2  mouseDelta = mouse.delta.ReadValue() * 0.075f;
 

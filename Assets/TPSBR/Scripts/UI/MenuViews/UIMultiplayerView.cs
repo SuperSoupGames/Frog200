@@ -104,7 +104,7 @@ namespace TPSBR.UI
 			//SSG_Statics.Region = currentRegion;/**/
 			SSG_Statics.Region = "us";
 
-            _regionDropdown.SetValueWithoutNotify(regionIndex);
+              _regionDropdown.SetValueWithoutNotify(regionIndex);
 		}
 
 		protected override void OnClose()

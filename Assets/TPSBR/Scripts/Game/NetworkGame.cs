@@ -331,7 +331,7 @@ namespace TPSBR
 
 			_levelGenerated = true;
 
-			_levelGenerator.Generate(seed, _levelSize, _areaCount);
+			//_levelGenerator.Generate(seed, _levelSize, _areaCount);
 
 			Context.Map.OverrideParameters(_levelGenerator.Center, _levelGenerator.Dimensions);
 
@@ -357,14 +357,14 @@ namespace TPSBR
 			for (int i = 0; i < _levelGenerator.ObjectsToSpawn.Count; i++)
 			{
 				var spawnData = _levelGenerator.ObjectsToSpawn[i];
-				var spawnedObject = Runner.Spawn(spawnData.Prefab, spawnData.Position, spawnData.Rotation);
+				//var spawnedObject = Runner.Spawn(spawnData.Prefab, spawnData.Position, spawnData.Rotation);
 
 				if (spawnData.IsConnector == true)
 				{
-					var connector = spawnedObject.GetComponent<IBlockConnector>();
+					////var connector = spawnedObject.GetComponent<IBlockConnector>();
 
-					connector.SetMaterial(spawnData.AreaID, spawnData.Material);
-					connector.SetHeight(spawnData.Height);
+					//connector.SetMaterial(spawnData.AreaID, spawnData.Material);
+					//connector.SetHeight(spawnData.Height);
 				}
 			}
 		}
