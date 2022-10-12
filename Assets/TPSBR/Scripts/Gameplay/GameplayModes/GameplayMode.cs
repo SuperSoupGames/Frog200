@@ -387,6 +387,7 @@ namespace TPSBR
 
 		protected virtual void TrySpawnAgent(Player player)
 		{
+			//Transform spawnPoint = GetRandomSpawnPoint(100.0f);
 			Transform spawnPoint = GetRandomSpawnPoint(100.0f);
 
 			var spawnPosition = spawnPoint != null ? spawnPoint.position : Vector3.zero;

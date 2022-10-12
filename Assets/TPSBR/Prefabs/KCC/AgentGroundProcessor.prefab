@@ -44,10 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3cae5608fd95f04db3ce296e8262b2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speedMultiplier: 1.125
-  _walkSpeedMultiplier: 1.35
+  _speedMultiplier: 4
   _relativeKinematicAcceleration: 50
   _proportionalKinematicFriction: 35
   _proportionalDynamicFriction: 20
   _inputResponsivity: 1
-  _jumpMultiplier: 2.5
+  _jumpMultiplier: 5
