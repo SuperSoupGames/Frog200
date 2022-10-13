@@ -228,14 +228,19 @@ namespace TPSBR
 
 		private void PrepareAirplane()
 		{
-			var randomOnCircle = MathUtility.RandomOnUnitCircle() * (_shrinkingArea.Radius + _airplanePrefab.OutZoneDistance + 30f);
-			//var randomOnCircle = Vector2.zero;
+			var planeRad = 400f;
+			//changed
+            //var randomOnCircle = MathUtility.RandomOnUnitCircle() * (_shrinkingArea.Radius + _airplanePrefab.OutZoneDistance + 30f);
+            var randomOnCircle = MathUtility.RandomOnUnitCircle() * (planeRad + _airplanePrefab.OutZoneDistance + 30f);
 
-            var position = _shrinkingArea.Center + new Vector3(randomOnCircle.x, _airplaneHeight, randomOnCircle.y);
+            //changed
+            //var position = _shrinkingArea.Center + new Vector3(randomOnCircle.x, _airplaneHeight, randomOnCircle.y);
+            var position = Vector3.zero + new Vector3(randomOnCircle.x, _airplaneHeight, randomOnCircle.y);
 
-			var lookDirection = Vector3.Cross((_shrinkingArea.Center - position).OnlyXZ(), Vector3.up);
+            var lookDirection = Vector3.Cross((_shrinkingArea.Center - position).OnlyXZ(), Vector3.up);
 			lookDirection = Random.value > 0.5f ? -lookDirection : lookDirection;
 
+			//not me not changed
 			//var rotation = Quaternion.LookRotation((_shrinkingArea.Center - position).OnlyXZ(), Vector3.up);
 
 			_airplane = Runner.Spawn(_airplanePrefab, position, Quaternion.LookRotation(lookDirection));

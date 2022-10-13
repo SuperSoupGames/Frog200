@@ -88,10 +88,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9b9988e7c4c2e724eb751db972209419, type: 2}
   - {fileID: 11400000, guid: da0e42120d80f0e48a67314a635f4897, type: 2}
   _State: 0
-  __startTick: 0
-  __shrinkingArea: {fileID: 0}
   _type: 3
-  _useShrinkingArea: 1
+  _useShrinkingArea: 0
   _maxKillInRowDelay: 6
   _airplanePrefab: {fileID: 2804349911246124050, guid: 407c894c943b3ff478cd5f01ddd9d842, type: 3}
   _airplaneHeight: 200
