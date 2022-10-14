@@ -4998,8 +4998,8 @@ MonoBehaviour:
   _bottomCameraAngleLimit: 75
   _fastMovementProcessor: {fileID: -2977180128878109980, guid: 6259acf20feed5147afc6f8d81edb8b6, type: 3}
   _visualRoot: {fileID: 5323567181497016712}
-  _minFallDamage: 5
-  _maxFallDamage: 150
+  _minFallDamage: 0
+  _maxFallDamage: 0
   _maxFallDamageVelocity: 90
   _minFallDamageVelocity: 20
 --- !u!114 &8798000677680717176

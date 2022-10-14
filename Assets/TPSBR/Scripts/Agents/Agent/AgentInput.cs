@@ -29,9 +29,14 @@ namespace TPSBR
 
 		public bool          IsCyclingGrenades => Time.time < _grenadesCyclingStartTime + _grenadesCycleDuration;
 
-		// PRIVATE MEMBERS
+        // PRIVATE MEMBERS
 
-		[SerializeField]
+        //changed
+        private bool _isQuick = false;
+        private bool _canToggle = true;
+        private int _toggleState = 0;
+
+        [SerializeField]
 		private float         _grenadesCycleDuration = 2f;
 		[SerializeField][Range(0.0f, 0.1f)][Tooltip("Look rotation delta for a render frame is calculated as average from all frames within responsivity time.")]
 		private float         _lookResponsivity = 0.0f;
@@ -301,10 +306,25 @@ namespace TPSBR
 				lookRotationDelta *= Global.RuntimeSettings.AimSensitivity;
 			}
 
-			if (keyboard.wKey.isPressed == true) { moveDirection += Vector2.up;    }
+			//changed
+			if(keyboard.shiftKey.isPressed && _toggleState == 0)
+			{
+				_toggleState = 1;
+				_canToggle = false;
+				_isQuick = !_isQuick;
+			}
+            if (keyboard.shiftKey.isPressed == false && _toggleState == 1)
+            {
+                _toggleState = 0;
+				_canToggle = true;
+            }
+
+
+            if (keyboard.wKey.isPressed == true) { moveDirection += Vector2.up;    }
 			if (keyboard.sKey.isPressed == true) { moveDirection += Vector2.down;  }
-			if (keyboard.aKey.isPressed == true) { moveDirection += Vector2.left;  }
-			if (keyboard.dKey.isPressed == true) { moveDirection += Vector2.right; }
+			//changed
+			if (keyboard.aKey.isPressed == true && _isQuick == false) { moveDirection += Vector2.left;  }
+			if (keyboard.dKey.isPressed == true && _isQuick == false) { moveDirection += Vector2.right; }
 
 			if (moveDirection.IsZero() == false)
 			{
@@ -314,25 +334,43 @@ namespace TPSBR
 			// Process input for render
 
 			_renderInput.MoveDirection     = moveDirection;
-			_renderInput.LookRotationDelta = lookRotationDelta;
+			_renderInput.LookRotationDelta = _isQuick == false ? lookRotationDelta : Vector2.zero;
 			_renderInput.Jump              = keyboard.spaceKey.isPressed;
-			_renderInput.Aim               = mouse.rightButton.isPressed;
-			_renderInput.Attack            = mouse.leftButton.isPressed;
-			_renderInput.Reload            = keyboard.rKey.isPressed;
-			_renderInput.Interact          = keyboard.fKey.isPressed;
-			_renderInput.Weapon            = GetWeaponInput(keyboard);
-			_renderInput.ToggleJetpack     = keyboard.xKey.isPressed;
-			_renderInput.Thrust            = keyboard.spaceKey.isPressed;
-			_renderInput.ToggleSide        = keyboard.eKey.isPressed;
-#if UNITY_EDITOR
-			_renderInput.ToggleSpeed       = keyboard.backquoteKey.isPressed;
-#else
-			_renderInput.ToggleSpeed       = keyboard.leftCtrlKey.isPressed & keyboard.leftAltKey.isPressed & keyboard.backquoteKey.isPressed;
-#endif
+            //changed
+            //_renderInput.Aim               = mouse.rightButton.isPressed;
+            //_renderInput.Attack            = mouse.leftButton.isPressed;
+            //_renderInput.Reload            = keyboard.rKey.isPressed;
+            //_renderInput.Interact          = keyboard.fKey.isPressed;
+            //_renderInput.Weapon            = GetWeaponInput(keyboard);
+            //_renderInput.ToggleJetpack     = keyboard.xKey.isPressed;
+            //_renderInput.Thrust            = keyboard.spaceKey.isPressed;
+            //_renderInput.ToggleSide        = keyboard.eKey.isPressed;
+            _renderInput.Aim = false;
+            _renderInput.Attack	= false;
+            _renderInput.Reload            = false;
+            _renderInput.Interact = false;
+			_renderInput.Weapon            = byte.MinValue;
+			_renderInput.ToggleJetpack     = false;
+            _renderInput.Thrust            = false;
+            _renderInput.ToggleSide        = false;
+			_renderInput.ToggleSpeed       = keyboard.shiftKey.isPressed;
+			//if(_renderInput.ToggleSpeed == true)
+			//{
+   //             _renderInput.LookRotationDelta = Vector2.zero;
 
-			// Process cached input for next OnInput() call, represents accumulated inputs for all render frames since last fixed update.
+   //             if (keyboard.aKey.isPressed == true) { moveDirection -= Vector2.left; }
+   //             if (keyboard.dKey.isPressed == true) { moveDirection -= Vector2.right; }
+   //         }
+            //changed
+            //#if UNITY_EDITOR
+            //			_renderInput.ToggleSpeed       = keyboard.backquoteKey.isPressed;
+            //#else
+            //			_renderInput.ToggleSpeed       = keyboard.leftCtrlKey.isPressed & keyboard.leftAltKey.isPressed & keyboard.backquoteKey.isPressed;
+            //#endif
 
-			float deltaTime = Time.deltaTime;
+            // Process cached input for next OnInput() call, represents accumulated inputs for all render frames since last fixed update.
+
+            float deltaTime = Time.deltaTime;
 
 			// Move direction accumulation is a special case. Let's say simulation runs 30Hz (33.333ms delta time) and render runs 300Hz (3.333ms delta time).
 			// If the player hits W key in last frame before fixed update, the KCC will move in render update by (velocity * 0.003333f).
