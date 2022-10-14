@@ -331,10 +331,10 @@ namespace TPSBR
 
 			_levelGenerated = true;
 			Debug.Log(SceneManager.GetActiveScene().name);
-			if(SceneManager.GetActiveScene().name != "GenArea7")
-			{
+			//if(SceneManager.GetActiveScene().name != "GenArea7")
+			//{
+			//}
 				_levelGenerator.Generate(seed, _levelSize, _areaCount);
-			}
 
 			Context.Map.OverrideParameters(_levelGenerator.Center, _levelGenerator.Dimensions);
 

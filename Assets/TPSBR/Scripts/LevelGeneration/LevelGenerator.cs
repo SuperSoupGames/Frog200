@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Fusion;
+using UnityEngine.UIElements;
 
 namespace TPSBR
 {
@@ -49,6 +50,8 @@ namespace TPSBR
 		public Vector2Int      Dimensions      => Vector2Int.one * _size * _blockSize;
 		public Vector3         Center          => new Vector3(_size * _blockSize * 0.5f - _blockSize * 0.5f, 0f, _size * _blockSize * 0.5f - _blockSize * 0.5f);
 		public int             BlockSize       => _blockSize;
+
+		public bool IsDownBelow = false;
 
 		// PRIVATE MEMBERS
 
@@ -124,6 +127,11 @@ namespace TPSBR
 
 			_water.position = new Vector3(Center.x, _water.position.y, Center.z);
 			_water.localScale = new Vector3(Dimensions.x, 1f, Dimensions.y);
+
+			if(IsDownBelow)
+			{
+				transform.position = new Vector3(transform.position.x, transform.position.y - 1000, transform.position.z);
+			}
 		}
 
 		// PRIVATE METHODS
