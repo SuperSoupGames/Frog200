@@ -14670,6 +14670,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1663143058354355924, guid: c3d7f405f701b6e468254469ed1d9756, type: 3}
+      propertyPath: m_Volume
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2189658669306622785, guid: c3d7f405f701b6e468254469ed1d9756, type: 3}
       propertyPath: m_Color.a
       value: 0
@@ -14677,6 +14681,18 @@ PrefabInstance:
     - target: {fileID: 2299762461524188309, guid: c3d7f405f701b6e468254469ed1d9756, type: 3}
       propertyPath: m_Layer
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476562160344916558, guid: c3d7f405f701b6e468254469ed1d9756, type: 3}
+      propertyPath: m_Color.a
+      value: 0.54509807
+      objectReference: {fileID: 0}
+    - target: {fileID: 2902137001048540946, guid: c3d7f405f701b6e468254469ed1d9756, type: 3}
+      propertyPath: m_fontColor.a
+      value: 0.5176471
+      objectReference: {fileID: 0}
+    - target: {fileID: 2902137001048540946, guid: c3d7f405f701b6e468254469ed1d9756, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 2220779519
       objectReference: {fileID: 0}
     - target: {fileID: 2997652454955500337, guid: c3d7f405f701b6e468254469ed1d9756, type: 3}
       propertyPath: m_Layer
@@ -14782,6 +14798,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5249695634619417360, guid: c3d7f405f701b6e468254469ed1d9756, type: 3}
+      propertyPath: m_Volume
+      value: 0.427
+      objectReference: {fileID: 0}
     - target: {fileID: 5300274798659816726, guid: c3d7f405f701b6e468254469ed1d9756, type: 3}
       propertyPath: m_Name
       value: ShrinkingArea
@@ -14817,6 +14837,14 @@ PrefabInstance:
     - target: {fileID: 8745870452967375253, guid: c3d7f405f701b6e468254469ed1d9756, type: 3}
       propertyPath: m_Layer
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8826275665647642171, guid: c3d7f405f701b6e468254469ed1d9756, type: 3}
+      propertyPath: m_fontColor.a
+      value: 0.5019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 8826275665647642171, guid: c3d7f405f701b6e468254469ed1d9756, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 2164260863
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3d7f405f701b6e468254469ed1d9756, type: 3}

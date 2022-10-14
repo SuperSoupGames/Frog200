@@ -59,6 +59,7 @@ namespace TPSBR
 		private NetworkCulling _networkCulling;
 		private Quaternion     _cachedLookRotation;
 		private Quaternion     _cachedPitchRotation;
+		private bool _DoingASuicide = false;
 
 		// NetworkBehaviour INTERFACE
 
@@ -161,6 +162,14 @@ namespace TPSBR
 			_character.GetCameraHandle().transform.localRotation = _cachedPitchRotation;
 
 			CheckFallDamage();
+
+			if(_DoingASuicide == false && (AgentInput.MustSuicide || AgentInput.InSuicideBox))
+			{
+				MustSuicide();
+				AgentInput.MustSuicide = false;
+				AgentInput.InSuicideBox = false;
+				_DoingASuicide = true;
+			}
 		}
 
 		public override void Render()
@@ -481,6 +490,24 @@ namespace TPSBR
 
 			newRecoil = recoil;
 		}
+
+		private void MustSuicide()
+		{
+            var hitData = new HitData
+            {
+                Action = EHitAction.Damage,
+                Amount = float.MaxValue,
+                Position = transform.position,
+                Normal = Vector3.up,
+                Direction = -Vector3.up,
+                InstigatorRef = Object.InputAuthority,
+                Instigator = _health,
+                Target = _health,
+                HitType = EHitType.Suicide,
+            };
+
+            (_health as IHitTarget).ProcessHit(ref hitData);
+        }
 
 		private void CheckFallDamage()
 		{

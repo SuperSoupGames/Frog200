@@ -127,12 +127,13 @@ namespace TPSBR.UI
 
 		private void UpdateHealthColor(Health health)
 		{
-			var healthColor = health.CurrentShield > 0f ? _shieldColor : GetHealthColor(health.CurrentHealth / health.MaxHealth);
-			_healthIcon.color = healthColor;
+			//changed
+			//var healthColor = health.CurrentShield > 0f ? _shieldColor : GetHealthColor(health.CurrentHealth / health.MaxHealth);
+			//_healthIcon.color = healthColor;
 
-			healthColor.a = 0.4f;
+			//healthColor.a = 0.4f;
 
-			_healthIcon2.color = healthColor;
+			//_healthIcon2.color = healthColor;
 		}
 
 		private Color GetHealthColor(float healthProgress)

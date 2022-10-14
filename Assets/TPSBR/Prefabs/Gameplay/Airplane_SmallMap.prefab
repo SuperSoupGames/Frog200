@@ -181,11 +181,11 @@ MonoBehaviour:
   _dropEnabledObject: {fileID: 2634124760585933027}
   _dropDisabledObject: {fileID: 5477373354592558092}
   _agentPosition: {fileID: 7365184294714314234}
-  _maxSpeed: 80
+  _maxSpeed: 40
   _maxAcceleration: 20
-  _tiltSpeed: 0.2
+  _tiltSpeed: 1
   _maxTilt: 60
-  _minDistanceToTargetChange: 300
+  _minDistanceToTargetChange: 100
   _outZoneDistance: 10
   _inZoneDistance: 15
   _audioEffect: {fileID: 42946708523828058}

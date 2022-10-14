@@ -29,6 +29,9 @@ namespace TPSBR
 
 		public bool          IsCyclingGrenades => Time.time < _grenadesCyclingStartTime + _grenadesCycleDuration;
 
+		public bool MustSuicide = false;
+		public bool InSuicideBox = false;
+
         // PRIVATE MEMBERS
 
         //changed
@@ -388,6 +391,10 @@ namespace TPSBR
 			if (_renderInput.Weapon != default)
 			{
 				_cachedInput.Weapon = _renderInput.Weapon;
+			}
+			if(keyboard.pKey.isPressed)
+			{
+				MustSuicide = true;
 			}
 		}
 

@@ -159,6 +159,7 @@ namespace TPSBR
 			areaPoint.y = transform.position.y;
 
 			return areaPoint;
+			//return Vector3.zero + Vector3.up * 100f;
 		}
 
 		private Vector3 FindNewTargetOutsideZone()

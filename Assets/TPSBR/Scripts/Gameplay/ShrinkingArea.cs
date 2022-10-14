@@ -139,8 +139,11 @@ namespace TPSBR
 			transform.position = center;
 
 			_mapRadius = mapRadius;
-			_startRadius = startRadius;
-			_endRadius = endRadius;
+			//changed
+			//_startRadius = startRadius;
+			//_endRadius = endRadius;
+			_startRadius = 0;
+			_endRadius = 0;
 		}
 
 		public bool SetEndCenter(Vector2 endCenter, bool force = false)
