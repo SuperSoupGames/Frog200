@@ -31,6 +31,7 @@ namespace TPSBR
 
 		public bool MustSuicide = false;
 		public bool InSuicideBox = false;
+		public bool IsStunned = false;
 
         // PRIVATE MEMBERS
 
@@ -294,6 +295,8 @@ namespace TPSBR
 			if (Context.Input.IsCursorVisible == true || Context.GameplayMode.State != GameplayMode.EState.Active)
 				return;
 
+			if (IsStunned)
+				return;
 			// Always use KeyControl.isPressed, Input.GetMouseButton() and Input.GetKey().
 			// Never use KeyControl.wasPressedThisFrame, Input.GetMouseButtonDown() or Input.GetKeyDown() otherwise the action might be lost.
 

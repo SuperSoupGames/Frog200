@@ -678,7 +678,7 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Idle A
+    - m_Text: Idle_A
       m_Image: {fileID: 0}
     - m_Text: Idle B
       m_Image: {fileID: 0}
@@ -698,7 +698,7 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: Roll
       m_Image: {fileID: 0}
-    - m_Text: Spin/Splash
+    - m_Text: Spin_Splash
       m_Image: {fileID: 0}
     - m_Text: Jump
       m_Image: {fileID: 0}
@@ -2080,7 +2080,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Idle A
+  m_Text: Idle_A
 --- !u!222 &1319022239
 CanvasRenderer:
   m_ObjectHideFlags: 0
