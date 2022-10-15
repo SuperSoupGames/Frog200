@@ -9,6 +9,9 @@ TagManager:
   - Metal
   - Water
   - Mud
+  - LightSource
+  - OnText
+  - OffText
   layers:
   - Default
   - TransparentFX

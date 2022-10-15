@@ -183,10 +183,10 @@ MonoBehaviour:
   _agentPosition: {fileID: 7365184294714314234}
   _maxSpeed: 40
   _maxAcceleration: 20
-  _tiltSpeed: 1
+  _tiltSpeed: 0.35
   _maxTilt: 60
-  _minDistanceToTargetChange: 100
-  _outZoneDistance: 10
+  _minDistanceToTargetChange: 300
+  _outZoneDistance: 0
   _inZoneDistance: 15
   _audioEffect: {fileID: 42946708523828058}
   _playerJumpedSound:

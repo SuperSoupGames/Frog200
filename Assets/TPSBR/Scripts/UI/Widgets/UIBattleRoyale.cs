@@ -24,7 +24,6 @@ namespace TPSBR.UI
 		private BattleRoyaleGameplayMode _battleRoyale;
 
 		// UIWidget INTERFACE
-
 		protected override void OnInitialize()
 		{
 			_jumpGroup.SetActive(false);
