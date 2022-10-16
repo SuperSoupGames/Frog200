@@ -85,7 +85,6 @@ namespace TPSBR
 			if (Object.HasStateAuthority == true)
 			{
 				StartAirdrop();
-                _endTimer = TickTimer.CreateFromSeconds(Runner, GameTimeLimit);
             }
             else if (ApplicationSettings.IsModerator == true) //Mo todo changed: You might not be SERVER w stateauth, but if ISMODERATOR, then make RPC call to the server. MAKES SENSE!
 			{
@@ -279,8 +278,10 @@ namespace TPSBR
 		private void StartAirdrop()
 		{
 			HasStarted = true;
+            Debug.Log("SETTING NEW TIMER!!!!!!!!!");
+            _endTimer = TickTimer.CreateFromSeconds(Runner, GameTimeLimit);
 
-			_airplane.ActivateDropWindow();
+            _airplane.ActivateDropWindow();
 			_dropCooldown = TickTimer.CreateFromSeconds(Runner, _playerDropTime);
 		}
 
