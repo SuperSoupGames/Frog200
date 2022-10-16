@@ -2,6 +2,8 @@ using UnityEngine;
 using Fusion;
 using System.Collections.Generic;
 using Fusion.KCC;
+using static Fusion.Simulation;
+using Unity.Services.Matchmaker.Models;
 
 namespace TPSBR
 {
@@ -47,7 +49,7 @@ namespace TPSBR
 		private Dictionary<PlayerRef, AirplaneAgent> _airplaneAgents = new Dictionary<PlayerRef, AirplaneAgent>(MAX_PLAYERS);
 
 		private BattleRoyaleComparer _playerComparer = new BattleRoyaleComparer();
-
+		 
 		// PUBLIC METHODS
 
 		public void StartImmediately()
@@ -56,7 +58,7 @@ namespace TPSBR
 			{
 				StartAirdrop();
 			}
-			else if (ApplicationSettings.IsModerator == true)
+			else if (ApplicationSettings.IsModerator == true) //Mo todo changed: You might not be SERVER w stateauth, but if ISMODERATOR, then make RPC call to the server. MAKES SENSE!
 			{
 				RPC_StartAirdrop();
 			}
@@ -281,6 +283,11 @@ namespace TPSBR
 			_shrinkingArea.Pause(false);
 		}
 
+		private void MustSuicide()
+		{
+
+		}
+
 		// RPCs
 
 		[Rpc(RpcSources.Proxies, RpcTargets.StateAuthority, Channel = RpcChannel.Reliable)]
@@ -298,7 +305,18 @@ namespace TPSBR
 			}
 		}
 
-		[Rpc(RpcSources.Proxies, RpcTargets.StateAuthority, Channel = RpcChannel.Reliable)]
+        [Rpc(RpcSources.All, RpcTargets.StateAuthority, Channel = RpcChannel.Reliable)]
+        public void RPC_AddAPoint(PlayerRef playerRef)
+        {
+			//playerRef(victimRef) = Agent(InheritsNetworkBody).Object.InputAuthority.
+			var player = Context.NetworkGame.GetPlayer(playerRef);
+			var statistics = player != null ? player.Statistics : default;
+			statistics.Score += 1;
+			player.UpdateStatistics(statistics);
+            RecalculatePositions();
+        }
+
+        [Rpc(RpcSources.Proxies, RpcTargets.StateAuthority, Channel = RpcChannel.Reliable)]
 		private void RPC_AddWaitTime(float time)
 		{
 			AddWaitTime(time);

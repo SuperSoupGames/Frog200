@@ -165,10 +165,12 @@ namespace TPSBR
 
 			if(_DoingASuicide == false && (AgentInput.MustSuicide || AgentInput.InSuicideBox))
 			{
-				MustSuicide();
-				AgentInput.MustSuicide = false;
-				AgentInput.InSuicideBox = false;
-				_DoingASuicide = true;
+				//todo mo changed : is "fixedupdatenetwork" only called by client, host, or auth?
+				//Context.ga
+				//RPC_MustSuicide();
+				//AgentInput.MustSuicide = false;
+				//AgentInput.InSuicideBox = false;
+				//_DoingASuicide = true;
 			}
 		}
 
@@ -491,8 +493,10 @@ namespace TPSBR
 			newRecoil = recoil;
 		}
 
-		private void MustSuicide()
+        [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority, Channel = RpcChannel.Reliable)]
+        public void RPC_MustSuicide()
 		{
+			Debug.Log("I SUICIDE");
             var hitData = new HitData
             {
                 Action = EHitAction.Damage,

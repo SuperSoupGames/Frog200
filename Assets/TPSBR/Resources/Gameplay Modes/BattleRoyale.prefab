@@ -75,7 +75,7 @@ MonoBehaviour:
   ScorePerKill: 10
   ScorePerDeath: 0
   ScorePerSuicide: -10
-  RespawnTime: -1
+  RespawnTime: 3
   TimeLimit: 0
   BackfillTimeLimit: 300
   Announcements:

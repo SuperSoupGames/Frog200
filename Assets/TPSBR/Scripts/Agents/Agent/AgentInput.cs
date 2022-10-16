@@ -32,6 +32,7 @@ namespace TPSBR
 		public bool MustSuicide = false;
 		public bool InSuicideBox = false;
 		public bool IsStunned = false;
+		public bool IsSuiciding = false;
 
         // PRIVATE MEMBERS
 
@@ -39,6 +40,8 @@ namespace TPSBR
         private bool _isQuick = false;
         private bool _canToggle = true;
         private int _toggleState = 0;
+		private bool _isAddingPoint = false;
+		private bool _canAddAnotherPoint = true;
 
         [SerializeField]
 		private float         _grenadesCycleDuration = 2f;
@@ -326,6 +329,8 @@ namespace TPSBR
             }
 
 
+
+
             if (keyboard.wKey.isPressed == true) { moveDirection += Vector2.up;    }
 			if (keyboard.sKey.isPressed == true) { moveDirection += Vector2.down;  }
 			//changed
@@ -395,9 +400,32 @@ namespace TPSBR
 			{
 				_cachedInput.Weapon = _renderInput.Weapon;
 			}
+			//changed
 			if(keyboard.pKey.isPressed)
 			{
-				MustSuicide = true;
+				if(Context.GameplayMode.Type == EGameplayType.BattleRoyale && IsSuiciding == false)
+				{
+					IsSuiciding	= true;
+					Debug.Log(transform.root.gameObject.name + " is trying a suicide.");
+					_agent.RPC_MustSuicide();
+				}
+			}
+			if(keyboard.uKey.isPressed && _canAddAnotherPoint && _isAddingPoint == false)
+			{
+				Debug.Log("POINT?!");
+				_canAddAnotherPoint = false;	
+				var playerRef = _agent.Object.InputAuthority;
+				var player = Context.NetworkGame.GetPlayer(playerRef);
+				var statistics = player != null ? player.Statistics : default;
+				Debug.Log("POINT?! 2L " + statistics.Score.ToString());
+				(Context.GameplayMode as BattleRoyaleGameplayMode).RPC_AddAPoint(Object.InputAuthority);
+
+				_isAddingPoint = true;
+			}
+			if(keyboard.uKey.isPressed == false && _canAddAnotherPoint == false)
+			{
+				_canAddAnotherPoint=true;
+				_isAddingPoint=false;
 			}
 		}
 

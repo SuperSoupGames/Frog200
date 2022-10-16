@@ -72,10 +72,10 @@ MonoBehaviour:
   _interpolationDataSource: 3
   GameplayName: Battle Royale
   MaxPlayers: 200
-  ScorePerKill: 10
+  ScorePerKill: 1
   ScorePerDeath: 0
   ScorePerSuicide: -10
-  RespawnTime: -1
+  RespawnTime: 3
   TimeLimit: 0
   BackfillTimeLimit: 300
   Announcements:

@@ -525,7 +525,7 @@ namespace TPSBR
 			TrySpawnAgent(player);
 		}
 
-		private void RecalculatePositions()
+		public void RecalculatePositions()
 		{
 			var allStatistics = ListPool.Get<PlayerStatistics>(MAX_PLAYERS);
 

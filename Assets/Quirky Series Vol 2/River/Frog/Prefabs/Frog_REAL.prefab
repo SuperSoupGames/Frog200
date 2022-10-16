@@ -96,6 +96,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 150511797a8277a4c99d829cf0efa12c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsDebuggingAnims: 0
+  IsFake: 0
+  CurrentAnim: 0
+  DebugAnim: 0
+  _minSpeedRun: 0.5
+  _minSpeedRoll: 8
+  IsStunned: 0
+  StunTime: 2
+  _StunStartTime: 0
 --- !u!136 &4762663880899033131
 CapsuleCollider:
   m_ObjectHideFlags: 0
