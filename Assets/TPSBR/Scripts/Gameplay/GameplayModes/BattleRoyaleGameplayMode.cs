@@ -85,8 +85,9 @@ namespace TPSBR
 			if (Object.HasStateAuthority == true)
 			{
 				StartAirdrop();
-			}
-			else if (ApplicationSettings.IsModerator == true) //Mo todo changed: You might not be SERVER w stateauth, but if ISMODERATOR, then make RPC call to the server. MAKES SENSE!
+                _endTimer = TickTimer.CreateFromSeconds(Runner, GameTimeLimit);
+            }
+            else if (ApplicationSettings.IsModerator == true) //Mo todo changed: You might not be SERVER w stateauth, but if ISMODERATOR, then make RPC call to the server. MAKES SENSE!
 			{
 				RPC_StartAirdrop();
 			}

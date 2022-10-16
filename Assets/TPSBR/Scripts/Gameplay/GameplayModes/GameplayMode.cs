@@ -77,7 +77,7 @@ namespace TPSBR
 		[Networked, HideInInspector]
 		protected int _startTick { get; set; }
 		[Networked, HideInInspector]
-		protected TickTimer _endTimer { get; private set; }
+		protected TickTimer _endTimer { get; set; }
 		[Networked, HideInInspector]
 		protected ShrinkingArea _shrinkingArea { get; set; }
 
@@ -110,7 +110,7 @@ namespace TPSBR
 
 			if (TimeLimit > 0f)
 			{
-				_endTimer = TickTimer.CreateFromSeconds(Runner, GameTimeLimit);
+				_endTimer = TickTimer.CreateFromSeconds(Runner, TimeLimit);
 			}
 
 			if (_useShrinkingArea == true && Object.HasStateAuthority == true)
