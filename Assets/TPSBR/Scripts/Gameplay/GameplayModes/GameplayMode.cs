@@ -50,7 +50,8 @@ namespace TPSBR
 		public short  ScorePerSuicide;
 		public float  RespawnTime;
 		public float  TimeLimit;
-		public float  BackfillTimeLimit;
+		public float  GameTimeLimit;
+        public float  BackfillTimeLimit;
 
 		public Announcement[] Announcements;
 
@@ -109,7 +110,7 @@ namespace TPSBR
 
 			if (TimeLimit > 0f)
 			{
-				_endTimer = TickTimer.CreateFromSeconds(Runner, TimeLimit);
+				_endTimer = TickTimer.CreateFromSeconds(Runner, GameTimeLimit);
 			}
 
 			if (_useShrinkingArea == true && Object.HasStateAuthority == true)

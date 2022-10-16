@@ -76,7 +76,8 @@ MonoBehaviour:
   ScorePerDeath: 0
   ScorePerSuicide: -10
   RespawnTime: 3
-  TimeLimit: 120
+  TimeLimit: 9999
+  GameTimeLimit: 120
   BackfillTimeLimit: 300
   Announcements:
   - {fileID: 11400000, guid: a3a8e4e180588c14c843d18f5d340964, type: 2}
@@ -98,3 +99,4 @@ MonoBehaviour:
   _airplaneAgentPrefab: {fileID: 337249011232384914, guid: af8e52ecf47dccc448a889075bde48ee, type: 3}
   _waitingForPlayersTime: 120
   _forcedJumpDelay: 1
+  TotalLights: 91
