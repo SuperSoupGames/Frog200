@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsDebuggingAnims: 0
   IsFake: 0
-  Ouch: {fileID: 8300000, guid: 090a061b7ac487d449ff19e2c899f6e3, type: 3}
+  Ouch: {fileID: 6416430017320471476}
   CurrentAnim: 0
   DebugAnim: 0
   _minSpeedRun: 0.5
