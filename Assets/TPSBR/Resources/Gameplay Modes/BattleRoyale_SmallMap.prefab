@@ -76,7 +76,7 @@ MonoBehaviour:
   ScorePerDeath: 0
   ScorePerSuicide: -10
   RespawnTime: 3
-  TimeLimit: 0
+  TimeLimit: 120
   BackfillTimeLimit: 300
   Announcements:
   - {fileID: 11400000, guid: a3a8e4e180588c14c843d18f5d340964, type: 2}
@@ -92,7 +92,7 @@ MonoBehaviour:
   _useShrinkingArea: 1
   _maxKillInRowDelay: 6
   _airplanePrefab: {fileID: 2804349911246124050, guid: b1de827a06729094faf6e44cf7ddb521, type: 3}
-  _airplaneHeight: 125
+  _airplaneHeight: 250
   _playerDropTime: 60
   _airplaneJumpImpulse: 20
   _airplaneAgentPrefab: {fileID: 337249011232384914, guid: af8e52ecf47dccc448a889075bde48ee, type: 3}

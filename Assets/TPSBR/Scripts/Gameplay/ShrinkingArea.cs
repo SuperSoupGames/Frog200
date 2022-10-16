@@ -140,8 +140,8 @@ namespace TPSBR
 
 			_mapRadius = mapRadius;
 			//changed
-			//_startRadius = startRadius;
-			//_endRadius = endRadius;
+			_startRadius = startRadius;
+			_endRadius = endRadius;
 			_startRadius = 0;
 			_endRadius = 0;
 		}

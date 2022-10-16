@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Fusion.KCC;
 using static Fusion.Simulation;
 using Unity.Services.Matchmaker.Models;
+using TMPro;
 
 namespace TPSBR
 {
@@ -37,13 +38,13 @@ namespace TPSBR
 
 		public Stack<int> BrokenLights = new Stack<int>();
 		//[Networked(OnChanged = nameof(BreakLight))]
-  //      [Capacity(91)] // Sets the fixed capacity of the collection
+		//      [Capacity(91)] // Sets the fixed capacity of the collection
 		//[UnitySerializeField] // Show this private property in the inspector.
 		//private NetworkDictionary<int, int> NetList => default;
 
 		//private Dictionary<int, int> NetList2 => default;
 
-  //      public static void BreakLight(Changed<BattleRoyaleGameplayMode> changed)
+		//      public static void BreakLight(Changed<BattleRoyaleGameplayMode> changed)
 		//{
 		//	changed.Behaviour._BreakLight();
 		//	changed.Behaviour.
@@ -60,6 +61,7 @@ namespace TPSBR
 		//	}
 		//}
 
+		public int TotalLights = 91;
 
         [Networked]
 		private byte _state { get; set; }
@@ -256,14 +258,12 @@ namespace TPSBR
 
 		private void PrepareAirplane()
 		{
-			var planeRad = 400f;
-			//changed
-            //var randomOnCircle = MathUtility.RandomOnUnitCircle() * (_shrinkingArea.Radius + _airplanePrefab.OutZoneDistance + 30f);
-            var randomOnCircle = MathUtility.RandomOnUnitCircle() * (planeRad + _airplanePrefab.OutZoneDistance + 30f);
+            var randomOnCircle = MathUtility.RandomOnUnitCircle() * (_shrinkingArea.Radius + _airplanePrefab.OutZoneDistance + 30f);
+            //var randomOnCircle = MathUtility.RandomOnUnitCircle() * (planeRad + _airplanePrefab.OutZoneDistance + 30f);
 
             //changed
-            //var position = _shrinkingArea.Center + new Vector3(randomOnCircle.x, _airplaneHeight, randomOnCircle.y);
-            var position = Vector3.zero + new Vector3(randomOnCircle.x, _airplaneHeight, randomOnCircle.y);
+            var position = _shrinkingArea.Center + new Vector3(randomOnCircle.x, _airplaneHeight, randomOnCircle.y);
+            //var position = Vector3.zero + new Vector3(randomOnCircle.x, _airplaneHeight, randomOnCircle.y);
 
             var lookDirection = Vector3.Cross((_shrinkingArea.Center - position).OnlyXZ(), Vector3.up);
 			lookDirection = Random.value > 0.5f ? -lookDirection : lookDirection;
@@ -342,6 +342,8 @@ namespace TPSBR
 			BrokenLights.Push(lightToBreak);
 			Context.NetworkGame.MyGameModeManager.MakeLightOff(lightToBreak);
 			RPC_AddAPoint(playerRef);
+			TotalLights--;
+			GameObject.FindGameObjectWithTag("LightsLeft").GetComponentInChildren<TextMeshProUGUI>().text = $"Lights left: {TotalLights}";
         }
 
         [Rpc(RpcSources.All, RpcTargets.StateAuthority, Channel = RpcChannel.Reliable)]

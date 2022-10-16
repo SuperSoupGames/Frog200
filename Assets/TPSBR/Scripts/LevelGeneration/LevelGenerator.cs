@@ -130,7 +130,7 @@ namespace TPSBR
 
 			if(IsDownBelow)
 			{
-				transform.position = new Vector3(transform.position.x, transform.position.y - 1000, transform.position.z);
+				transform.position = new Vector3(transform.position.x, transform.position.y - 5000, transform.position.z);
 			}
 		}
 

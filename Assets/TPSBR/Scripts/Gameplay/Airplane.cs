@@ -166,8 +166,9 @@ namespace TPSBR
 		{
 			var area = Context.GameplayMode.ShrinkingArea;
 			var dirOutOfArea = (transform.position + transform.forward * 60f - area.Center).OnlyXZ().normalized;
-
-			var areaPoint = area.Center + dirOutOfArea * (area.Radius + _outZoneDistance);
+			Debug.Log(area.Center);
+			Debug.Log(area.Radius);
+            var areaPoint = area.Center + dirOutOfArea * (area.Radius + _outZoneDistance);
 			areaPoint.y = transform.position.y;
 
 			return areaPoint;

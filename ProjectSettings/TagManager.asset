@@ -12,6 +12,7 @@ TagManager:
   - LightSource
   - OnText
   - OffText
+  - LightsLeft
   layers:
   - Default
   - TransparentFX
