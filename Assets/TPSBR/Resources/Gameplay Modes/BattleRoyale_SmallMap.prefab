@@ -77,7 +77,7 @@ MonoBehaviour:
   ScorePerSuicide: -10
   RespawnTime: 3
   TimeLimit: 9999
-  GameTimeLimit: 120
+  GameTimeLimit: 90
   BackfillTimeLimit: 300
   Announcements:
   - {fileID: 11400000, guid: a3a8e4e180588c14c843d18f5d340964, type: 2}

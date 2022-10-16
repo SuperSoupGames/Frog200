@@ -6475,11 +6475,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Frog_REAL
       objectReference: {fileID: 0}
+    - target: {fileID: 2405692385198801028, guid: 547d9c816c57e7d49a710196d7835498, type: 3}
+      propertyPath: Ouch
+      value: 
+      objectReference: {fileID: 5853352952617184040}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 547d9c816c57e7d49a710196d7835498, type: 3}
 --- !u!4 &267280727707720184 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 830181866293360996, guid: 547d9c816c57e7d49a710196d7835498, type: 3}
+  m_PrefabInstance: {fileID: 590240268384559260}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &5853352952617184040 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6416430017320471476, guid: 547d9c816c57e7d49a710196d7835498, type: 3}
   m_PrefabInstance: {fileID: 590240268384559260}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4106245824187922955
