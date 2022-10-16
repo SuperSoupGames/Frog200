@@ -5,7 +5,7 @@ namespace TPSBR
 	public class SceneCamera : SceneService
 	{
 		// PUBLIC MEMBERS
-
+		public AudioSource Music;
 		public Camera      Camera        => _camera;
 		public ShakeEffect ShakeEffect   => _shakeEffect;
 		public bool        EnableCamera  { get; set; } = true;
@@ -36,7 +36,6 @@ namespace TPSBR
 			{
 				_audioListener.enabled = Context.HasInput;
 				_camera.enabled = Context.HasInput;
-
 				// We are just switching culling mask as disabling would mean more complex camera setup to not stop UI rendering
 				_camera.cullingMask = EnableCamera == true ? _cameraCullingMask : 0;
 			}

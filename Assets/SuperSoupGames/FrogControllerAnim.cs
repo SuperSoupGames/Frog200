@@ -28,6 +28,8 @@ public class FrogControllerAnim : MonoBehaviour
     public bool IsDebuggingAnims = false;
     public bool IsFake = false;
 
+    public AudioSource Ouch;
+
     public enum anims
     {
         Idle_A,
@@ -202,6 +204,7 @@ public class FrogControllerAnim : MonoBehaviour
                     IsStunned = true;
                     _StunStartTime = Time.time;
                     PlayAnim(anims.Spin_Splash.ToString());
+                    Ouch.Play();
                     _Agent.AgentInput.IsStunned = true;
                 }
             } else if (other.gameObject.name == "BreakZone")

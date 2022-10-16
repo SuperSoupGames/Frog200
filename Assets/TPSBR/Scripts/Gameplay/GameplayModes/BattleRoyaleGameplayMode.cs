@@ -280,7 +280,7 @@ namespace TPSBR
 			HasStarted = true;
             Debug.Log("SETTING NEW TIMER!!!!!!!!!");
             _endTimer = TickTimer.CreateFromSeconds(Runner, GameTimeLimit);
-
+			Context.Camera.Music.Play();
             _airplane.ActivateDropWindow();
 			_dropCooldown = TickTimer.CreateFromSeconds(Runner, _playerDropTime);
 		}
