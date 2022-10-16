@@ -280,7 +280,7 @@ namespace TPSBR
 			HasStarted = true;
             Debug.Log("SETTING NEW TIMER!!!!!!!!!");
             _endTimer = TickTimer.CreateFromSeconds(Runner, GameTimeLimit);
-			Context.Camera.Music.Play();
+			//RPC_StartMusic();
             _airplane.ActivateDropWindow();
 			_dropCooldown = TickTimer.CreateFromSeconds(Runner, _playerDropTime);
 		}
@@ -316,7 +316,13 @@ namespace TPSBR
 
 		}
 
-		// RPCs
+        // RPCs
+        [Rpc(RpcSources.All, RpcTargets.All, Channel = RpcChannel.Reliable)]
+        private void RPC_StartMusic()
+		{
+			Debug.Log("Start music!");
+            Context.Camera.Music.Play();
+        }
 
 		[Rpc(RpcSources.Proxies, RpcTargets.StateAuthority, Channel = RpcChannel.Reliable)]
 		private void RPC_StartAirdrop()

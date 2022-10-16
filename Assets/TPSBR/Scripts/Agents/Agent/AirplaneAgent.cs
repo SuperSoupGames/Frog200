@@ -70,7 +70,10 @@ namespace TPSBR
 				if (EGameplayInputAction.Jump.WasActivated(input, _lastKnownInput) == true)
 				{
 					if ((Context.GameplayMode as BattleRoyaleGameplayMode).RequestAirplaneJump(Object.InputAuthority, transform.rotation * Vector3.forward) == true)
-						return;
+					{
+                        Context.Camera.Music.Play();
+                        return;
+					}
 				}
 
 				_lastKnownInput = input;

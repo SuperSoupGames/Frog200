@@ -46,7 +46,7 @@ public class MyGameModeManager : MonoBehaviour
     }
 
     bool _firstTime = true;
-    float _waitForFirstTime = 10f;
+    float _waitForFirstTime = 1f;
     // Update is called once per frame
     void Update()
     {
@@ -58,7 +58,6 @@ public class MyGameModeManager : MonoBehaviour
                 _firstTime = false;
                 for (int i = 0; i < StaticRoot.transform.childCount; i++)
                 {
-                    Debug.Log("total kids: " + StaticRoot.transform.childCount);
                     var light = StaticRoot.transform.GetChild(i);
                     if (light.tag == "LightSource")
                     {
@@ -91,6 +90,11 @@ public class MyGameModeManager : MonoBehaviour
         Debug.Log("LIGHT OFF: " + index.ToString());
         var light = StaticRoot.transform.GetChild(index);
         var poleScript = light.GetComponent<LightPole>();
+        if(poleScript == null)
+        {
+            Debug.Log("Polescript not found?");
+            return;
+        }
         poleScript.OFF.SetActive(true);
         poleScript.ON.SetActive(false);
         poleScript.LightGroup.SetActive(false);
