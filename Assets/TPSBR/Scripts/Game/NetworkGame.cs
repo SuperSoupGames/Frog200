@@ -12,6 +12,8 @@ namespace TPSBR
 	public sealed class NetworkGame : ContextBehaviour, IPlayerJoined, IPlayerLeft
 	{
 		// PUBLIC MEMBERS
+		//changed added:
+		public MyGameModeManager MyGameModeManager;
 
 		public LevelGenerator LevelGenerator => _levelGenerator;
 

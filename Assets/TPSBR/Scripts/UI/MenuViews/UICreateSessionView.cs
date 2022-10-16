@@ -92,11 +92,12 @@ namespace TPSBR.UI
 
 		private void OnCreateButton()
 		{
+			//changed
 			var request = new SessionRequest
 			{
-				DisplayName  = _gameName.text,
-				GameMode     = _dedicatedServer.isOn == true ? GameMode.Server : GameMode.Host,
-				GameplayType = (EGameplayType) (_gameplay.value + 1),
+				DisplayName = _gameName.text,
+				GameMode = _dedicatedServer.isOn == true ? GameMode.Server : GameMode.Host,
+				GameplayType = EGameplayType.BattleRoyale,//(EGameplayType) (_gameplay.value + 1),
 				MaxPlayers   = System.Int32.Parse(_maxPlayers.text),
 				ScenePath    = _mapSetups[_maps.Selection].ScenePath,
 			};
@@ -132,7 +133,7 @@ namespace TPSBR.UI
 		private void UpdateDropdowns()
 		{
 			var options = ListPool.Get<string>(16);
-
+			var gameModeOptions = new List<string>();
 			int defaultOption = 0;
 			int i = 0;
 			foreach (EGameplayType value in System.Enum.GetValues(typeof(EGameplayType)))
@@ -143,13 +144,15 @@ namespace TPSBR.UI
 				if (value == EGameplayType.BattleRoyale)
 				{
 					options.Add("Battle Royale");
-				}
-				else
+					gameModeOptions.Add("Battle Royale");
+                }
+                else
 				{
 					options.Add(value.ToString());
 				}
 
-				if (value == EGameplayType.Deathmatch)
+				//if (value == EGameplayType.Deathmatch)
+				if (value == EGameplayType.BattleRoyale)
 				{
 					defaultOption = i;
 				}
@@ -158,7 +161,7 @@ namespace TPSBR.UI
 			}
 
 			_gameplay.ClearOptions();
-			_gameplay.AddOptions(options);
+			_gameplay.AddOptions(gameModeOptions);
 			_gameplay.SetValueWithoutNotify(defaultOption);
 
 			ListPool.Return(options);

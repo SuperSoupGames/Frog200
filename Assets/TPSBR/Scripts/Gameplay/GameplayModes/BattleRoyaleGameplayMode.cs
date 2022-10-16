@@ -35,7 +35,33 @@ namespace TPSBR
 		[SerializeField]
 		private float _forcedJumpDelay = 1f;
 
-		[Networked]
+		public Stack<int> BrokenLights = new Stack<int>();
+		//[Networked(OnChanged = nameof(BreakLight))]
+  //      [Capacity(91)] // Sets the fixed capacity of the collection
+		//[UnitySerializeField] // Show this private property in the inspector.
+		//private NetworkDictionary<int, int> NetList => default;
+
+		//private Dictionary<int, int> NetList2 => default;
+
+  //      public static void BreakLight(Changed<BattleRoyaleGameplayMode> changed)
+		//{
+		//	changed.Behaviour._BreakLight();
+		//	changed.Behaviour.
+		//}
+
+		//private void _BreakLight()
+		//{
+		//	foreach (var kvp in NetList)
+		//	{
+		//		if(kvp.Value == 0)
+		//		{
+		//			NetList.Set(kvp.Key, 1);
+		//		}
+		//	}
+		//}
+
+
+        [Networked]
 		private byte _state { get; set; }
 		[Networked]
 		private TickTimer _waitingForPlayersCooldown { get; set; }
@@ -304,6 +330,19 @@ namespace TPSBR
 				_airplane.OnPlayerJumped(playerRef);
 			}
 		}
+        //InvokeLocal = false, 
+        [Rpc(RpcSources.All, RpcTargets.All, Channel = RpcChannel.Reliable)]
+        public void RPC_BreakLight(int lightToBreak, PlayerRef playerRef)
+        {
+			if (BrokenLights.Contains(lightToBreak))
+			{
+				Debug.Log($"This light {lightToBreak} is already broken");
+				return;
+			}
+			BrokenLights.Push(lightToBreak);
+			Context.NetworkGame.MyGameModeManager.MakeLightOff(lightToBreak);
+			RPC_AddAPoint(playerRef);
+        }
 
         [Rpc(RpcSources.All, RpcTargets.StateAuthority, Channel = RpcChannel.Reliable)]
         public void RPC_AddAPoint(PlayerRef playerRef)

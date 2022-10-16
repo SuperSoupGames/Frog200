@@ -188,7 +188,8 @@ public class FrogControllerAnim : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(_Agent != null && _Agent.IsLocal)
+         //&& _Agent.IsLocal
+        if (_Agent != null)
         {
             if(other.gameObject.name == "KCCCollider")
             {
@@ -203,14 +204,27 @@ public class FrogControllerAnim : MonoBehaviour
                     PlayAnim(anims.Spin_Splash.ToString());
                     _Agent.AgentInput.IsStunned = true;
                 }
+            } else if (other.gameObject.name == "BreakZone")
+            {
+                var lightPost = other.gameObject.transform.parent;
+                var lightPostIndex = lightPost.GetSiblingIndex();
+
+                _Agent.Context.NetworkGame.MyGameModeManager.MakeLightOff(lightPostIndex);
             }
 
         }
 
-        if (_Agent == null)
+        if (_Agent != null)
         {
-            Debug.Log("FAKE FAKE COLLIDED WITH!!!!:" + other.gameObject.name);
-            Debug.Log("My anim state is: " + CurrentAnim.ToString());
+            if (other.gameObject.name == "BreakZone" && _Agent.HasStateAuthority)
+            {
+                var lightPost = other.gameObject.transform.parent;
+                var lightPostIndex = lightPost.GetSiblingIndex();
+                (_Agent.Context.GameplayMode as BattleRoyaleGameplayMode).RPC_BreakLight(lightPostIndex, _Agent.Object.InputAuthority);
+                Debug.Log("other is :::: " + other.gameObject.name);
+            }
+            //Debug.Log("FAKE FAKE COLLIDED WITH!!!!:" + other.gameObject.name);
+            //Debug.Log("My anim state is: " + CurrentAnim.ToString());
         }
         //var otherAnim = other.gameObject.GetComponent<FrogControllerAnim>().CurrentAnim;
         //if(otherAnim == anims.Roll)
