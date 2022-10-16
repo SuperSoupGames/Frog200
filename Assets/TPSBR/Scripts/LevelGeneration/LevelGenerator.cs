@@ -168,7 +168,7 @@ namespace TPSBR
 				area.Radius = Random.Range(areaRadiusMin, areaRadiusMax);
 				area.MaxHeight = Random.Range(Mathf.Max(1f, _maxHeight - _randomizeAreaHeight * _maxHeight), _maxHeight + _randomizeAreaHeight * _maxHeight);
 
-				Debug.Log($"Area {areaID}, Radius {area.Radius}, Max Height {area.MaxHeight}");
+				//Debug.Log($"Area {areaID}, Radius {area.Radius}, Max Height {area.MaxHeight}");
 
 				// Aditional radius for flatland(white) blocks
 				float flatlandRadius = area.Radius > _blockSize * 3f ? area.Radius + _blockSize * 2f : area.Radius + _blockSize;

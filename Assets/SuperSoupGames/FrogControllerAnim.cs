@@ -191,13 +191,16 @@ public class FrogControllerAnim : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
          //&& _Agent.IsLocal
-        if (_Agent != null)
+        if (_Agent != null && _Agent.AgentInput != null)
         {
             if(other.gameObject.name == "KCCCollider")
             {
                 Debug.Log("FROGG COLLIDED WITH!!!!:" + other.gameObject.name);
                 Debug.Log("My anim state is: " + CurrentAnim.ToString());
-                var theirAnim = other.gameObject.transform.root.GetComponentInChildren<FrogControllerAnim>().CurrentAnim;
+                var frogAnim = other.gameObject.transform.root.GetComponentInChildren<FrogControllerAnim>();
+                if (frogAnim == null)
+                    return;
+                var theirAnim = frogAnim.CurrentAnim;
                 Debug.Log("Their anim state is: " + theirAnim.ToString());
                 if(theirAnim == anims.Roll)
                 {
@@ -210,6 +213,10 @@ public class FrogControllerAnim : MonoBehaviour
             } else if (other.gameObject.name == "BreakZone")
             {
                 var lightPost = other.gameObject.transform.parent;
+                if (lightPost == null)
+                {
+                    return;
+                }
                 var lightPostIndex = lightPost.GetSiblingIndex();
 
                 _Agent.Context.NetworkGame.MyGameModeManager.MakeLightOff(lightPostIndex);
